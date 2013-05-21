@@ -139,3 +139,12 @@ $(document).ready(function() {
     });
   }, 4000);
 });
+
+$(document).ready(function() {
+  $('.play_again input[type="submit"]').mouseover(function() {
+    $(this).css("background-color", "#DDDDDD");
+  });
+  $('.play_again input[type="submit"]').mouseout(function() {
+    $(this).css("background-color", "");
+  });
+});
