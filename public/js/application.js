@@ -115,7 +115,7 @@ $(document).ready(function() {
 $(document).ready(function() {
   setTimeout(function() {
     $('#countdown').css("background-color", "yellow");
-    $('#countdown h1').text("STEADY??");
+    $('#countdown h1').text("STEADY?");
   }, 2000);
   setTimeout(function() {
     $('#countdown').css("background-color", "green");
