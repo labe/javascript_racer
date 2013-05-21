@@ -1,63 +1,29 @@
-<div id="container">
+<div id="countdown">
+  <h1>READY?</h1>
+</div>
+
+<div id="racetrack">
   <table class="racer_table">
     <tr id="player1_strip">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>    
+      <% 30.times do %>
+        <td></td>
+      <% end %>
     </tr>
     <tr id="player2_strip">
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>  
+     <% 30.times do %>
+        <td></td>
+      <% end %>
     </tr>
   </table>
-  <!-- <div id="options">
-    <button id="reset">Play again? (Play again!)</button>
-  </div> -->
-  <form method="POST" action="/game" id="results">
+  <form method="POST" action="/game" id="race_results">
     <input type="hidden" name="winner" value="">
     <input type="hidden" name="duration" value="">
   </form>
-  </div>
+</div>
+
+<div id="player_info">
+  <h3>Player 1:&nbsp;<%= Player.find(session[:player1]).initials %><h3>
+    <h4>Press "P" to advance!</h4>
+  <h3>Player 2:&nbsp;<%= Player.find(session[:player2]).initials %><h3>    
+    <h4>Press "Q" to advance!</h4>
+</div>

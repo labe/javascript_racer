@@ -42,26 +42,100 @@ board = {
   },
 
   submit: function() {
-    $('#results input[name=winner]').val(board.winner());
-    $('#results input[name=duration]').val(board.duration/1000);
-    $('#results').submit();
+    $('#race_results input[name=winner]').val(board.winner());
+    $('#race_results input[name=duration]').val(board.duration/1000);
+    $('#race_results').submit();
   }
 }
 
 
+// $(document).ready(function() {
+//   board.reset();
+//   $(document).one('keydown', function(e) {
+//     board.start_time = e.timeStamp;
+//   });
+//   $(document).on('keyup', function(e) {
+//     if(! board.finished()) {
+//       board.move(e.which);
+//     } else {
+//       board.submit();
+//     }
+//   });
+//   $('button#reset').click(function () {
+//     alert(board.winner + ", " + board.duration/1000);
+//   });
+// });
+
 $(document).ready(function() {
-  board.reset();
-  $(document).one('keydown', function(e) {
-    board.start_time = e.timeStamp;
+  $('#error h3').mouseover(function() {
+    $(this).css("background-color", "#33CC00");
   });
-  $(document).on('keyup', function(e) {
-    if(! board.finished()) {
-      board.move(e.which);
-    } else {
-      board.submit();
-    }
+  $('#error h3').mouseout(function() {
+    $(this).css("background-color", "green");
   });
-  $('button#reset').click(function () {
-    alert(board.winner + ", " + board.duration/1000);
+});
+
+$(document).ready(function() {
+  $('.blink').each(function() {
+    var elem = $(this);
+    setInterval(function() {
+        if (elem.css('visibility') == 'hidden') {
+            elem.css('visibility', 'visible');
+        } else {
+            elem.css('visibility', 'hidden');
+        }    
+    }, 500);
   });
+});
+
+$(document).ready(function() {
+  if (window.location.pathname == '/') {
+    setInterval(function() {
+      $('.ruby').next('span').addClass('ruby');   
+    }, 500);
+    window.setTimeout(function() {
+      window.location.href = '/player1';
+    }, 5500);
+  }
+});
+
+$(document).ready(function() {
+  setTimeout(function() {
+    var racer = $('.racer');
+    setInterval(function() {
+       racer.toggleClass('racer-red');
+    }, 500);
+  }, 1500);
+
+  setTimeout(function() {
+    $('#welcome h1').text("");
+  }, 4500);
+});
+
+$(document).ready(function() {
+  setTimeout(function() {
+    $('#countdown').css("background-color", "yellow");
+    $('#countdown h1').text("STEADY??");
+  }, 2000);
+  setTimeout(function() {
+    $('#countdown').css("background-color", "green");
+    $('#countdown h1').text("RACE!");
+  }, 4000);
+
+  setTimeout(function() {
+     board.reset();
+    $(document).one('keydown', function(e) {
+      board.start_time = e.timeStamp;
+    });
+    $(document).on('keyup', function(e) {
+      if(! board.finished()) {
+        board.move(e.which);
+      } else {
+        board.submit();
+      }
+    });
+    $('button#reset').click(function () {
+      alert(board.winner + ", " + board.duration/1000);
+    });
+  }, 4000);
 });

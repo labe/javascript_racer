@@ -1,8 +1,8 @@
 <div id="player_name">
-  <form method="POST" action="/player<%= player_number %>">
-    <p>PLAYER <%= player_number %></p>
-    <p>Enter your three initials!</p>
-    <input type="text" name="player<%= player_number %>">
-    <input type="submit" value="GO!">
+  <form method="POST" action="/player<%= player_number %>" id="initials" data-validate="parsley">
+    <p class="blink">PLAYER <%= player_number %></p>
+    <p>Enter your initials!</p>
+    <input type="text" name="player<%= player_number %>" data-minlength="3" data-maxlength="3" autofocus />
+    <input type="submit" value="GO!" />
   </form>
 </div>

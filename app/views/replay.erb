@@ -1,18 +1,22 @@
-<h3>Winner was <%= winner %></h3>
-<h3><%= winner %> won in <%= game.duration %> seconds!</h3>
-<h3>To view these stats again, visit your secret URL here!:</h3>
-<h1><a href="http://localhost:9393/race/<%= game.url %>">http://localhost:9393/race/<%= game.url %></a></h1>
+<div id="replay">
+	<h3>Player 1:&nbsp;<%= game.players.first.initials %><br />
+	Player 2:&nbsp;<%= game.players.last.initials %></h3>
+	<h3>Winner was <%= winner %></h3>
+	<h3><%= winner %> won in <%= game.duration %> seconds!</h3>
+	<h3>To view these stats again, visit your Chocolate Frosted Sugar Bombs<br />secret decoder URL here!:</h3>
+	<h1><a href="http://localhost:9393/race/<%= game.url %>"><%= game.url %></a></h1>
 
-<form method="POST" action="/replay_game">
-  <p>Play again with the same players?</p>
-  <input type="hidden" name="player1" value="<%= game.players.first.id %>">
-  <input type="hidden" name="player2" value="<%= game.players.last.id %>">
-  <input type="submit" value="YES PLAY ON!">
-</form>
+	<form method="POST" action="/replay_game">
+	  <p>Play again with the same players?</p>
+	  <input type="hidden" name="player1" value="<%= game.players.first.id %>">
+	  <input type="hidden" name="player2" value="<%= game.players.last.id %>">
+	  <input type="submit" value="YES PLAY ON!">
+	</form>
 
-<form method="GET" action="/">
-  <p>Play again with new players?</p>
-  <input type="submit" value="HECK YEAH NEW PLAYERS">
-</form>
+	<form method="GET" action="/">
+	  <p>Play again with new players?</p>
+	  <input type="submit" value="HECK YEAH NEW PLAYERS">
+	</form>
 
-<h5><a href="http://wikipedia.org">Or go kill some time.</a></h5>
+	<h5><a href="http://wikipedia.org">Or go kill time more productively</a></h5>
+</div>
